@@ -1,0 +1,221 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API DOC ",
+        "description": "Apis para la administracion",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/book": {
+            "get": {
+                "summary": "Mostrar listado de libros",
+                "operationId": "0e75dde625f5fdef923b42b410113da4",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todos los libros registrados."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "post": {
+                "summary": "Insertar libros",
+                "operationId": "d186ef540836dc71b8d1342642a1cce5",
+                "requestBody": {
+                    "description": "Datos de nuevo libro",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "author",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "description": "titulo del libro",
+                                        "type": "string"
+                                    },
+                                    "author": {
+                                        "description": "autor del libro",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "descripcion del libro",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Retorna el resultado del registro",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "title": {
+                                            "description": "titulo del libro",
+                                            "type": "string"
+                                        },
+                                        "author": {
+                                            "description": "autor del libro",
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "description": "descripcion del libro",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        },
+        "/api/book/{id}": {
+            "get": {
+                "summary": "Mostrar libros por ID",
+                "operationId": "c2d58ab5f9eb729975ff3468e0e327ac",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de libro",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar libros por ID."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar libros",
+                "operationId": "a0894639dd8663ef8249b56ed6fe561a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de libro",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Datos de actualizacion libro",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "author",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "description": "titulo del libro",
+                                        "type": "string"
+                                    },
+                                    "author": {
+                                        "description": "autor del libro",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "descripcion del libro",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Retorna el resultado del registro",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "title": {
+                                            "description": "titulo del libro",
+                                            "type": "string"
+                                        },
+                                        "author": {
+                                            "description": "autor del libro",
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "description": "descripcion del libro",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Borrar libro por ID",
+                "operationId": "e1d27bcf7c73344045c09c19499d956d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de libro",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mostrar libros por ID."
+                    },
+                    "default": {
+                        "description": "Ha ocurrido un error."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "token": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
